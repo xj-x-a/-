@@ -1,4 +1,4 @@
-# 数字化转型指数查询应用 - 整合版
+## 数字化转型指数查询应用 - 整合版
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -190,14 +190,13 @@ with tab1:
         
         ax.set_xlabel('企业数量', fontsize=14)
         ax.set_ylabel('行业名称', fontsize=14)
-        ax.set_title('各行业企业数量分布 (前20名)', fontsize=12)
+        ax.set_title('各行业企业数量分布 (前20名)', fontsize=16)
         ax.invert_yaxis()  # 最大的在最上面
         
         # 调整布局，确保标签不被截断
         plt.subplots_adjust(left=0.35, right=0.95)
         plt.tight_layout()
         st.pyplot(fig)
-
 
 with tab2:
     st.subheader("行业数字化转型指数对比")
@@ -262,3 +261,4 @@ if not filtered_df.empty:
 st.markdown("---")
 st.markdown("📅 数据更新时间: 2023年")
 st.markdown("💡 提示: 可使用左侧筛选器查看特定行业和年份的数据")
+
