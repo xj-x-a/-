@@ -190,7 +190,7 @@ with tab1:
         
         ax.set_xlabel('企业数量', fontsize=14)
         ax.set_ylabel('行业名称', fontsize=14)
-        ax.set_title('各行业企业数量分布 (前20名)', fontsize=16)
+        ax.set_title('各行业企业数量分布 (前20名)', fontsize=12)
         ax.invert_yaxis()  # 最大的在最上面
         
         # 调整布局，确保标签不被截断
