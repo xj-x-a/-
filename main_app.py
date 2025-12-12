@@ -174,21 +174,30 @@ with tab1:
         # 只显示前20个行业
         top_industries = industry_dist.head(20)
         
-        fig, ax = plt.subplots(figsize=(12, 8))
+        # 增加图表宽度并确保中文字体显示
+        fig, ax = plt.subplots(figsize=(16, 10))
+        
+        # 设置字体大小
+        plt.rcParams.update({'font.size': 12})
+        
         bars = ax.barh(top_industries['行业名称'], top_industries['企业数量'], color='skyblue')
         
         # 添加数据标签
         for bar in bars:
             width = bar.get_width()
             ax.text(width + 5, bar.get_y() + bar.get_height()/2, f'{int(width)}', 
-                    va='center', ha='left', fontweight='bold')
+                    va='center', ha='left', fontweight='bold', fontsize=10)
         
-        ax.set_xlabel('企业数量')
-        ax.set_ylabel('行业名称')
-        ax.set_title('各行业企业数量分布 (前20名)')
+        ax.set_xlabel('企业数量', fontsize=14)
+        ax.set_ylabel('行业名称', fontsize=14)
+        ax.set_title('各行业企业数量分布 (前20名)', fontsize=16)
         ax.invert_yaxis()  # 最大的在最上面
+        
+        # 调整布局，确保标签不被截断
+        plt.subplots_adjust(left=0.35, right=0.95)
         plt.tight_layout()
         st.pyplot(fig)
+
 
 with tab2:
     st.subheader("行业数字化转型指数对比")
